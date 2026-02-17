@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Crush!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fce4ec; /* Pink background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Para hindi lumabas scrollbar pag tumatakbo button */
+        }
+
+        h1 {
+            color: #d81b60;
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #880e4f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .gif-container img {
+            width: 200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #4caf50; /* Green */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            background-color: #45a049;
+        }
+
+        #noBtn {
+            background-color: #f44336; /* Red */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative; /* Importante para gumana ang pagtakbo */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="content" style="text-align: center;">
+        <div class="gif-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2QyZzZ5aW12OG14bm14OW14bm14OW14bm14OW14bm14OW14bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear" id="mainImage">
+        </div>
+        
+        <h1>Hi Crush!</h1>
+        <p>Gusto kita, pwede ba manligaw?</p> <div class="buttons">
+            <button id="yesBtn" onclick="success()">Yes</button>
+            <button id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            var x = Math.random() * (window.innerWidth - 100);
+            var y = Math.random() * (window.innerHeight - 100);
+            
+            var btn = document.getElementById('noBtn');
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function success() {
+            var content = document.getElementById('content');
+            
+            // Ito ang lalabas pag nag YES sila
+            content.innerHTML = `
+                <h1 style="font-size: 4rem; color: #d81b60;">Yieee! Sabi mo yan ah! ❤️</h1>
+                <img src="https://media.giphy.com/media/T86i6yDyOYz7J6dPhf/giphy.gif" style="width: 300px; border-radius: 20px;">
+                <p>See you soon! 😘</p>
+            `;
+            
+            // Confetti effect (optional visuals)
+            document.body.style.backgroundColor = "#ffc1e3";
+        }
+    </script>
+</body>
+</html>
